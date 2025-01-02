@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import Link from 'next/link';
 // import Swiper core and required modules
 import SwiperCore, {
   Pagination, Autoplay
@@ -31,7 +32,10 @@ export default function Carousel() {
                       <span className="text-3xl md:text-xl text-secondary">Our Specil Dish</span>
                       <h2 className="text-7xl md:text-5xl font-black text-primary">{slide.title}</h2>
                       <p className="text-2xl md:text-lg text-gray-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit natus dolor cumque?</p>
-                      <MyButton text="Order Now"/>
+                      
+                      <Link href='/bookTable'>
+                      <a><MyButton text="Book Table "/></a>
+          </Link>
                     </div>
                     <div className="h-full md:pb-10">
                       <img
