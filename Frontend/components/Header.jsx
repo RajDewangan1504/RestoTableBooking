@@ -32,9 +32,9 @@ export default function Header() {
           <Link href='/about'>
             <a className="nav-link">About</a>
           </Link>
-          {/* <Link href='/menu'>
-            <a className="nav-link">Menu</a>
-          </Link> */}
+          <Link href='/menu'>
+            <a className="nav-link">Booked </a>
+          </Link>
           <Link href='/review'>
             <a className="nav-link">Review</a>
           </Link>
