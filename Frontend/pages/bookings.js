@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import Layout from "../components/Layout";
 import BookingItems from "../components/BookingItems";
-import { initMenu } from "../features/menuSlice";
 
 export const getStaticProps = async () => {
   const res = await fetch("https://resto-table-booking.vercel.app/api/bookings");
@@ -15,12 +13,11 @@ export const getStaticProps = async () => {
 };
 
 export default function Menu({ bookings }) {
-  const dispatch = useDispatch();
-  const menu = useSelector((state) => state.menu.menu);
+  const [menu, setMenu] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Transforming and dispatching booking data to the Redux store
+    // Transform booking data for local state
     const bookingData = bookings.map((booking) => ({
       id: booking._id,
       name: booking.name,
@@ -29,9 +26,10 @@ export default function Menu({ bookings }) {
       time: booking.time || "N/A",
       guests: booking.guests,
     }));
-    dispatch(initMenu(bookingData));
+
+    setMenu(bookingData);
     setLoading(false);
-  }, [bookings, dispatch]);
+  }, [bookings]);
 
   return (
     <Layout title="Booking Details" subtitle="View All Reservations">
