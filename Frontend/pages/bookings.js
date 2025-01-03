@@ -8,6 +8,7 @@ import BookingItems from "../components/BookingItems"
 export const getStaticProps = async () => {
   const res = await fetch("https://resto-table-booking.vercel.app/api/bookings");
   const data = await res.json();
+  // console.log("data",data);
   return {
     props: {
       bookings: data, // Passing booking details as props
@@ -18,6 +19,7 @@ export const getStaticProps = async () => {
 export default function Menu({ bookings }) {
   const dispatch = useDispatch();
   const menu = useSelector((state) => state.menu.menu);
+
 
   useEffect(() => {
     // Map booking data to a format compatible with the existing component
