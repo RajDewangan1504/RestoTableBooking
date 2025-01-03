@@ -19,13 +19,13 @@ export default function Order() {
     const { name, value } = e.target;
     setFormData((prevState) => {
       const updatedFormData = { ...prevState, [name]: value };
-      console.log("Updated formData", updatedFormData); // Log updated state
+      // console.log("Updated formData", updatedFormData); // Log updated state
       return updatedFormData;
     });
   };
 
   const handleSubmit = async (e) => {
-    console.log("formData",formData);
+    // console.log("formData",formData);
     e.preventDefault();
     try {
       const response = await fetch(
